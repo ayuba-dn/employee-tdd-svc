@@ -6,7 +6,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/ayuba-dn/EmployeeService">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="assets/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Employee Service</h3>
