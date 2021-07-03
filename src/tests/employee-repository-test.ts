@@ -1,11 +1,6 @@
 import Employee from "../models/employee-model";
 import EmployeeRepository from "../repositories/employee-repository";
-import { EmployeeRoutes } from "../routes/employee-routes";
-import AxiosHelper from '../utils/axios-adapter'
-const BASE_URL = 'https://restcountries.eu/rest/v2'
 import countriesClient from '../utils/axios-adapter'
-//jest.mock('../utils/axios-adapter')
-
 
 
 describe("Employee Repository",()=>{
