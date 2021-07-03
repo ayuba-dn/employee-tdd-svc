@@ -12,7 +12,7 @@
   <h3 align="center">Employee Service</h3>
 
   <p align="center">
- This service manages employees across different organizations and countries. It is a demonstration of the patterns i utilize in building projects. Technical Proposal document for improvement is availabe [here](https://docs.google.com/document/d/1NQAYiJfMpgfAQGixtT5ZST-BRoveKTAwoqVYh4KoXL0/edit?usp=sharing)
+ This service manages employees across different organizations and countries. It is a demonstration of the patterns i utilize in building projects. Technical Proposal document for improvement is available <a href="https://docs.google.com/document/d/1NQAYiJfMpgfAQGixtT5ZST-BRoveKTAwoqVYh4KoXL0/edit?usp=sharing">here</a>
     <br />
     <a href="https://github.com/ayuba-dn/EmployeeService"><strong>Explore the docs »</strong></a>
     <br />
