@@ -14,7 +14,7 @@
   <p align="center">
  This service manages employees across different organizations and countries. It is a demonstration of the patterns i utilize in building projects. Technical Proposal document for improvement is available <a href="https://docs.google.com/document/d/1NQAYiJfMpgfAQGixtT5ZST-BRoveKTAwoqVYh4KoXL0/edit?usp=sharing">here</a>
     <br />
-    <a href="https://github.com/ayuba-dn/employee-service"><strong>Explore the docs »</strong></a>
+    <a href="#installation"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://docs.google.com/document/d/1NQAYiJfMpgfAQGixtT5ZST-BRoveKTAwoqVYh4KoXL0/edit?usp=sharing">View Proposal</a>
