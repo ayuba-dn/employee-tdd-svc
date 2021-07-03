@@ -8,16 +8,17 @@ class EmployeeService {
         this.app = express()
         this.initializeRoutes()
     }
-
+    
+    //add all routes to the App here
     private initializeRoutes(){
        new EmployeeRoutes(this.app);
        this.app.route(`${this.version}/`)
         .get(async (req: express.Request, res: express.Response) => {
-              return res.status(200).send("Employee service running on port 8000");
+              return res.status(200).send(`Employee service running on port ${process.env.PORT!}`);
         })
     }
  
-    start(port: Number){
+    start(port: Number|String){
         return this.app.listen(port, () => {
             console.log(`employee service running on port ${port}`);
         });

@@ -54,9 +54,11 @@ class EmployeeRepository {
                                         "country":"US"
                                     }
                                    ];
-    private filteredEmployees: Employee[] = []                          
+    private filteredEmployees: Employee[] = []   
+    //The add any region here to distinquish its employees with unique identifier                       
     private specialRegions:String[] = ['Asia','Europe'];
     constructor() {
+        //fetch and filter employee data
        this.filterEmployees()
     }
 
@@ -73,15 +75,18 @@ class EmployeeRepository {
 
     public getCountry(employee: Employee){
         countriesClient.http.get(`/alpha/${employee.country}`).then((country: any)=>{
-            if(this.specialRegions.includes(country.data.region)){
-              employee.additionalIndentifier = employee.firstName+employee.lastName+employee.dateOfBirth
-            }
+           //Add the additional the country details fiels
             employee.countryDetails = {
                      name: country.data.name,
                      currencies: country.data.currencies,
                      languages: country.data.languages,
                      timezones: country.data.timezones
-            }   
+            }  
+            //Check for countries within the special countries array
+            if(this.specialRegions.includes(country.data.region)){
+                employee.additionalIndentifier = employee.firstName+employee.lastName+employee.dateOfBirth
+            }
+            //Push to final array
             this.filteredEmployees.push(employee)             
          })
     }

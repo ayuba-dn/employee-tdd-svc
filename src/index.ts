@@ -1,3 +1,6 @@
 import EmployeeService from './app'
+import dotenv from 'dotenv'
+dotenv.config();
 
-EmployeeService.start(8000); 
+//Start Service
+EmployeeService.start(process.env.PORT!); 

@@ -106,10 +106,11 @@ The project is easy to run and extend. Subsequent sections give a highlight
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+The formal documentation for this service is still in the pipelin. You can however retrieve all employees with the route below;
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
+```sh
+   /api/v1/employees
+   ```
 
 
 <!-- ROADMAP -->
