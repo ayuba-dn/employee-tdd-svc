@@ -5,7 +5,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/ayuba-dn/EmployeeService">
+  <a href="https://github.com/ayuba-dn/employee-service">
     <img src="assets/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -14,14 +14,14 @@
   <p align="center">
  This service manages employees across different organizations and countries. It is a demonstration of the patterns i utilize in building projects. Technical Proposal document for improvement is available <a href="https://docs.google.com/document/d/1NQAYiJfMpgfAQGixtT5ZST-BRoveKTAwoqVYh4KoXL0/edit?usp=sharing">here</a>
     <br />
-    <a href="https://github.com/ayuba-dn/EmployeeService"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/ayuba-dn/employee-service"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://docs.google.com/document/d/1NQAYiJfMpgfAQGixtT5ZST-BRoveKTAwoqVYh4KoXL0/edit?usp=sharing">View Proposal</a>
     ·
-    <a href="https://github.com/ayuba-dn/EmployeeService/issues">Report Bug</a>
+    <a href="https://github.com/ayuba-dn/employee-service/issues">Report Bug</a>
     ·
-    <a href="https://github.com/ayuba-dn/EmployeeService/issues">Request Feature</a>
+    <a href="https://github.com/ayuba-dn/employee-service/issues">Request Feature</a>
   </p>
 </p>
 
@@ -89,7 +89,7 @@ The project is easy to run and extend. Subsequent sections give a highlight
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/ayuba-dn/EmployeeService.git
+   git clone https://github.com/ayuba-dn/employee-service.git
    ```
 3. Install NPM packages
    ```sh
@@ -115,7 +115,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/ayuba-dn/EmployeeService/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/ayuba-dn/employee-service/issues) for a list of proposed features (and known issues).
 
 
 
@@ -127,7 +127,7 @@ See the [open issues](https://github.com/ayuba-dn/EmployeeService/issues) for a 
 
 Ayuba Dauda - [@ayuba-dn](https://twitter.com/ayuba-dn) - mailtoayuba@gmail.com
 
-Project Link: [https://github.com/ayuba-dn/EmployeeService](https://github.com/ayuba-dn)
+Project Link: [https://github.com/ayuba-dn/employee-service](https://github.com/ayuba-dn)
 
 
 
