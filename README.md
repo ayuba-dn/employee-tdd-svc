@@ -65,12 +65,15 @@ This employee service is an API server that basically returns a list of employee
 
 ### Built With
 
-The following are the major tools that have been utilised for this project.
+The following are the major tools that have been utilized for this project.
 * [Typescript](https://www.typescriptlang.org)
 * [Nodejs](https://nodejs.org/en/)
 * [Express](https://expressjs.com)
 * [Jest](https://jestjs.io/)
 * [Supertest](https://www.npmjs.com/package/supertest)
+* [Auth0](https://auth0.com/)
+* [Docker](https://docker.com/)
+
 
 
 
@@ -101,12 +104,17 @@ The project is easy to run and extend. Subsequent sections give a highlight
    ```sh
      npm run dev
    ```
+  
+5. Run Tests
+   ```sh
+     npm run test
+   ```
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-The formal documentation for this service is still in the pipelin. You can however retrieve all employees with the route below;
+The formal documentation for this service is still in the pipelin. You can however test with a get and post request to the route below;
 
 ```sh
    /api/v1/employees
