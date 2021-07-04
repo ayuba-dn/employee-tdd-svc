@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-class CountriesClient {
+ class CountriesHttpClient {
       http: any;
        constructor(baseUrl: string){
          this.http = axios.create({
@@ -10,5 +10,4 @@ class CountriesClient {
   
   }
 
-
-  export default new CountriesClient('https://restcountries.eu/rest/v2')
+  export default new CountriesHttpClient('https://restcountries.eu/rest/v2')

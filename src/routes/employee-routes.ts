@@ -10,7 +10,7 @@ export class EmployeeRoutes extends RoutesHelper {
     }
 
     setUpRoutes() {
-        this.app.route(`${this.prefix}/employees`)
+        this.app.route('/employees')
         .get(async (req: Request, res: Response) => {
               const response = await EmployeeController.getEmployees();
               return res.send(response);

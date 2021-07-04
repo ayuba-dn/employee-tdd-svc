@@ -1,7 +1,7 @@
 import EmployeeController from "../controllers/employee-controller"
 import EmployeeRepository from "../repositories/employee-repository"
 
-import Employee from "../models/employee-model"
+import Employee from "../models/employee-interface"
 
 
 describe("Employee Controller",()=>{

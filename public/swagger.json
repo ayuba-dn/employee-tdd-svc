@@ -26,8 +26,14 @@
 					"country": {
 						"type": "string"
 					},
-					"countryDetails": {},
-					"additionalIndentifier": {}
+					"countryDetails": {
+						"properties": {},
+						"type": "object"
+					},
+					"additionalIndentifier": {
+						"properties": {},
+						"type": "object"
+					}
 				},
 				"required": [
 					"firstName",
@@ -56,7 +62,7 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
-		"/employee": {
+		"/employees": {
 			"get": {
 				"operationId": "GetEmployees",
 				"responses": {

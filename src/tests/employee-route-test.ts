@@ -14,7 +14,7 @@ describe('EmployeeRoutes', ()=>{
 
     describe('GET /employees',()=>{
         it('Should call EmployeeController.getEmployees',async ()=>{
-            await supertest(app).get("/api/v1/employees");
+            await supertest(app).get("/employees");
             const getEmployees = jest.spyOn(EmployeeController,'getEmployees').mockResolvedValue([])
             expect(getEmployees).toBeCalled()
         })

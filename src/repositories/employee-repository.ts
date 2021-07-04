@@ -1,6 +1,6 @@
-import countriesClient from '../utils/axios-adapter'
-import Employee from "../models/employee-model"
-
+import HttpClient from '../utils/countries-http-client'
+import Employee from "../models/employee-interface"
+import countriesClient from '../utils/countries-http-client'
 
 
 class EmployeeRepository {

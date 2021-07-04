@@ -94,6 +94,9 @@ This section contains a highlight of how to install and run the project
 
 ### Installation
 
+USING DOCKER
+
+USING NPM
 1. Clone the repo
    ```sh
    git clone https://github.com/ayuba-dn/employee-service.git

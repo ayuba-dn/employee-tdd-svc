@@ -1,6 +1,6 @@
-import Employee from "../models/employee-model";
+import Employee from "../models/employee-interface";
 import EmployeeRepository from "../repositories/employee-repository";
-import countriesClient from '../utils/axios-adapter'
+import countriesClient from '../utils/countries-http-client'
 
 
 describe("Employee Repository",()=>{

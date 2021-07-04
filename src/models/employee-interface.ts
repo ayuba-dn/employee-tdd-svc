@@ -6,6 +6,6 @@ export default interface Employee {
     jobTitle:string,
     company:string,
     country:string,
-    countryDetails?: any
-    additionalIndentifier?: any
+    countryDetails?: {}
+    additionalIndentifier?: {}
 }
