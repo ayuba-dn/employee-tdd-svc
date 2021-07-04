@@ -1,11 +1,23 @@
 import express, {Application} from "express"
 import {EmployeeRoutes} from "./routes/employee-routes"
+import swaggerUi from "swagger-ui-express";
+
 
 class EmployeeService {
     private app: Application
     private version: String = '/api/v1'
     constructor(){
         this.app = express()
+        this.app.use(express.static("public"));
+        this.app.use(
+            "/docs",
+            swaggerUi.serve,
+            swaggerUi.setup(undefined, {
+              swaggerOptions: {
+                url: "/swagger.json",
+              },
+            })
+          );
         this.initializeRoutes()
     }
     

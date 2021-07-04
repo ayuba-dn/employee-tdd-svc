@@ -1,0 +1,87 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"Employee": {
+				"properties": {
+					"firstName": {
+						"type": "string"
+					},
+					"lastName": {
+						"type": "string"
+					},
+					"dateOfBirth": {
+						"type": "string"
+					},
+					"jobTitle": {
+						"type": "string"
+					},
+					"company": {
+						"type": "string"
+					},
+					"country": {
+						"type": "string"
+					},
+					"countryDetails": {},
+					"additionalIndentifier": {}
+				},
+				"required": [
+					"firstName",
+					"lastName",
+					"dateOfBirth",
+					"jobTitle",
+					"company",
+					"country"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "employee-service",
+		"version": "1.0.0",
+		"description": "Service to retrieve employees",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {
+			"name": "Ayuba Dauda"
+		}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/employee": {
+			"get": {
+				"operationId": "GetEmployees",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Employee"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}

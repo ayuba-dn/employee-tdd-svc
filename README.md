@@ -69,10 +69,12 @@ The following are the major tools that have been utilized for this project.
 * [Typescript](https://www.typescriptlang.org)
 * [Nodejs](https://nodejs.org/en/)
 * [Express](https://expressjs.com)
-* [Jest](https://jestjs.io/)
-* [Supertest](https://www.npmjs.com/package/supertest)
-* [Auth0](https://auth0.com/)
-* [Docker](https://docker.com/)
+* [Jest](https://jestjs.io/): I utilized this rich testing library to write unit tests
+* [Supertest](https://www.npmjs.com/package/supertest): To ensure every unit of this service including the endpoints is tested, i utilize this library to mock HTTP requests to the endpoints
+* [Auth0](https://auth0.com/): Auth0 is integrated to demonstrate how authentication and authorization middelwares will fit into the codebase. A test auth0 account is used for this.
+* [Docker](https://docker.com/): The service is dockerized and pushed to docker hub for ease installation accross different environments
+* [Tsoa](https://github.com/lukeautry/tsoa#readme): This has been used to automatically generate API documentation in line with the Swagger API specification
+
 
 
 
@@ -81,11 +83,13 @@ The following are the major tools that have been utilized for this project.
 <!-- GETTING STARTED -->
 ## Running this Project
 
-The project is easy to run and extend. Subsequent sections give a highlight
+This section contains a highlight of how to install and run the project
 
 ### Prerequisites
 
 * [Nodejs] Runtime environment coupled with npm, downloadable at (https://nodejs.org/en/)
+* Docker (Optional)
+
 
 
 ### Installation
