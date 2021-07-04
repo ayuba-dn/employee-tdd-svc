@@ -88,14 +88,16 @@ This section contains a highlight of how to install and run the project
 ### Prerequisites
 
 * [Nodejs] Runtime environment coupled with npm, downloadable at (https://nodejs.org/en/)
-* Docker (Optional)
+* [Docker] (Optional)
 
 
 
 ### Installation
 
-USING DOCKER
-
+RUN WITH DOCKER
+ ```sh
+ docker run -d -p 8000:8000 --name employee-svc imagehub360/employee-service:main
+ ```
 USING NPM
 1. Clone the repo
    ```sh
