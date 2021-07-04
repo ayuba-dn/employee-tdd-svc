@@ -72,7 +72,7 @@ The following are the major tools that have been utilized for this project.
 * [Jest](https://jestjs.io/): I utilized this rich testing library to write unit tests
 * [Supertest](https://www.npmjs.com/package/supertest): To ensure every unit of this service including the endpoints is tested, i utilize this library to mock HTTP requests to the endpoints
 * [Auth0](https://auth0.com/): Auth0 is integrated to demonstrate how authentication and authorization middelwares will fit into the codebase. A test auth0 account is used for this.
-* [Docker](https://docker.com/): The service is dockerized and pushed to docker hub for ease installation accross different environments
+* [Docker](https://docker.com/): The service is dockerized and pushed to docker hub for ease of installation accross different environments
 * [Tsoa](https://github.com/lukeautry/tsoa#readme): This has been used to automatically generate API documentation in line with the Swagger API specification
 
 

@@ -1,10 +1,10 @@
 
 import EmployeeRepository from "../repositories/employee-repository";
-import Employee from "../models/employee-model"
+import Employee from "../models/employee-interface"
 import { Get, Route } from "tsoa";
 
 
-@Route('employee')
+@Route('employees')
 class EmployeeController {
    
     @Get("/")
