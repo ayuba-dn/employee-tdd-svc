@@ -74,6 +74,7 @@ The following are the major tools that have been utilized for this project.
 * [Auth0](https://auth0.com/): Auth0 is integrated to demonstrate how authentication and authorization middelwares will fit into the codebase. A test auth0 account is used for this.
 * [Docker](https://docker.com/): The service is dockerized and pushed to docker hub for ease of installation accross different environments
 * [Tsoa](https://github.com/lukeautry/tsoa#readme): This has been used to automatically generate API documentation in line with the Swagger API specification
+* [Github_Actions](https://docs.github.com/en/actions/guides/about-continuous-integration): To automatically and continuosly push this service to production, a workflow has been created using git actions.
 
 
 
@@ -123,17 +124,13 @@ USING NPM
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-The formal documentation for this service is still in the pipelin. You can however test with a get and post request to the route below;
-
-```sh
-   /api/v1/employees
-   ```
+The API documentation for this service will be available automatically at the path /docs. Example if you are running the project on the host localhost:8000, the docs will be available at localhost:8000/docs
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/ayuba-dn/employee-service/issues) for a list of proposed features (and known issues).
+See the (https://docs.google.com/document/d/1NQAYiJfMpgfAQGixtT5ZST-BRoveKTAwoqVYh4KoXL0/edit#heading=h.m0x3bho09ha3) for a list of proposed features (and known issues).
 
 
 
