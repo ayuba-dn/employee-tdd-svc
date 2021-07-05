@@ -58,40 +58,40 @@ class EmployeeRepository {
     private specialRegions:String[] = ["Asia","Europe"];
     constructor() {
         //fetch and filter employee data
-       this.filterEmployees()
+       this.filterEmployees(this.employees)
     }
 
     
-    public async getAll(): Promise<Employee []> {
+    async getAll(): Promise<Employee []> {
         return this.filteredEmployees;
     }
 
-    private async filterEmployees(){
-        let country:any;
-        this.employees.forEach(async (employee)=>{
-            country = await this.getCountryDetails(employee.country)
+    async filterEmployees(employees: Employee[]){
+        employees.forEach(employee=>{
+            this.getCountryDetails(employee.country).then(country=>{
             //console.log(country)
-            if(country){
-                employee.countryDetails = {
+            employee.countryDetails = {
                     name: country.data.name,
                     currencies: country.data.currencies,
                     languages: country.data.languages,
                     timezones: country.data.timezones
-            }  
+            }
            //Check for countries within the special countries array
-           this.addUniqueIdentifier(employee,country)
+            this.addUniqueIdentifier(employee,country)
            
             //Push to final array
             this.filteredEmployees.push(employee)   
-            }
-        })
+          }).catch(error=>{
+              throw new Error('Something bad happened'+error)
+          })
+       })
+   }
+
+    async getCountryDetails(countryCode: String){
+        return countriesClient.http.get(`/alpha/${countryCode}`)
     }
 
-    public async getCountryDetails(countryCode: String){
-        return await countriesClient.http.get(`/alpha/${countryCode}`)
-    }
-
-    addUniqueIdentifier(employee: Employee, country: any){
+    async addUniqueIdentifier(employee: Employee, country: any){
         if(this.specialRegions.includes(country.data.region)){
             employee.additionalIndentifier = employee.firstName+employee.lastName+employee.dateOfBirth
          }

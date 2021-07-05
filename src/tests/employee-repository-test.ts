@@ -185,14 +185,10 @@ describe("Employee Repository",()=>{
     
     }
     let usaEmployee: Employee;
-    let indiaAsiaEmployee: Employee =  {
-                                      firstName:"Simon",
-                                      lastName:"McTester",
-                                      dateOfBirth:"01/11/1987",
-                                      jobTitle:"Product manager",
-                                      company:"Mock industries",
-                                      country:"IND"
-                                     }
+    let indiaAsiaEmployee: Employee;
+    let allEmployees: Employee[];
+    let filteredEmployees: Employee[];
+
     beforeEach(() => {
       usaEmployee = {
             firstName: "Melissa",
@@ -201,7 +197,95 @@ describe("Employee Repository",()=>{
             jobTitle: "Software developer",
             company: "Mock industries",
             country: "US",
+       }
+       indiaAsiaEmployee =  {
+              firstName:"Simon",
+              lastName:"McTester",
+              dateOfBirth:"01/11/1987",
+              jobTitle:"Product manager",
+              company:"Mock industries",
+              country:"IND"
        } 
+       allEmployees = [
+           usaEmployee, indiaAsiaEmployee
+       ]
+       filteredEmployees = [
+          {
+            firstName: "Melissa",
+            lastName: "Mocker",
+            dateOfBirth: "10/01/1982",
+            jobTitle: "Software developer",
+            company: "Mock industries",
+            country: "US",
+            countryDetails: {
+              name: "United States of America",
+              currencies: [
+                {
+                  code: "USD",
+                  name: "United States dollar",
+                  symbol: "$"
+                }
+              ],
+              languages: [
+                {
+                  iso639_1: "en",
+                  iso639_2: "eng",
+                  name: "English",
+                  nativeName: "English"
+                }
+              ],
+              timezones: [
+                "UTC-12:00",
+                "UTC-11:00",
+                "UTC-10:00",
+                "UTC-09:00",
+                "UTC-08:00",
+                "UTC-07:00",
+                "UTC-06:00",
+                "UTC-05:00",
+                "UTC-04:00",
+                "UTC+10:00",
+                "UTC+12:00"
+              ]
+            }
+          },
+          {
+            firstName: "Simon",
+            lastName: "McTester",
+            dateOfBirth: "01/11/1987",
+            jobTitle: "Product manager",
+            company: "Mock industries",
+            country: "IND",
+            countryDetails: {
+              name: "India",
+              currencies: [
+                {
+                  code: "INR",
+                  name: "Indian rupee",
+                  symbol: "₹"
+                }
+              ],
+              languages: [
+                {
+                  iso639_1: "hi",
+                  iso639_2: "hin",
+                  name: "Hindi",
+                  nativeName: "हिन्दी"
+                },
+                {
+                  iso639_1: "en",
+                  iso639_2: "eng",
+                  name: "English",
+                  nativeName: "English"
+                }
+              ],
+              timezones: [
+                "UTC+05:30"
+              ]
+            },
+            additionalIndentifier: "SimonMcTester01/11/1987"
+          }
+       ]
     });
     describe("getCountryDetails",()=>{
         it("Should get an employees country details", async()=>{
@@ -222,6 +306,16 @@ describe("Employee Repository",()=>{
       it("should not add an additional Identifier to an employee if his country is not in the special region",async()=>{
           await EmployeeRepository.addUniqueIdentifier(usaEmployee,usaData);
           expect(usaEmployee.additionalIndentifier).toEqual(undefined)
+      })
+    })
+
+    describe("filterEmployees", ()=>{
+      it("should add unique identifeir fields to employees from special countries",async()=>{
+        const getCountryDetails = jest.spyOn(EmployeeRepository,"getCountryDetails")
+        const addUniqueIdentifier = jest.spyOn(EmployeeRepository,"addUniqueIdentifier")
+        await EmployeeRepository.filterEmployees(allEmployees);
+        expect(getCountryDetails).toHaveBeenCalledTimes(allEmployees.length)
+        
       })
     })
 

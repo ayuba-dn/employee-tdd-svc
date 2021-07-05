@@ -20,20 +20,7 @@ describe("EmployeeRoutes", ()=>{
         })
     })
 
-    describe("POST /employees",()=>{
-        const newEmployee = {
-            firstName: "Peter",
-            lastName: "Ruby",
-            jobTitle: "HR manager",
-            company: "Microsoft",
-            country: "US"
-        }
-        it("Should create new employee",async()=>{
-             return request.post("/employees").send(newEmployee)
-             .expect("Content-Type",/json/)
-             .expect(201)
-        })
-    })
+    
     
 })
 
