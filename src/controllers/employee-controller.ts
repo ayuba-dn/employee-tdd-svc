@@ -4,7 +4,7 @@ import Employee from "../models/employee-interface"
 import { Get, Route } from "tsoa";
 
 
-@Route('employees')
+@Route("employees")
 class EmployeeController {
    
     @Get("/")

@@ -1,5 +1,5 @@
-import EmployeeService from './app'
-import dotenv from 'dotenv'
+import EmployeeService from "./app"
+import dotenv from "dotenv"
 dotenv.config();
 
 //Start Service

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
  class CountriesHttpClient {
       http: any;
@@ -10,4 +10,4 @@ import axios from 'axios';
   
   }
 
-  export default new CountriesHttpClient('https://restcountries.eu/rest/v2')
+  export default new CountriesHttpClient("https://restcountries.eu/rest/v2")

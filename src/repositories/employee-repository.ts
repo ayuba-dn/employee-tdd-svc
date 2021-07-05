@@ -1,6 +1,5 @@
-import HttpClient from '../utils/countries-http-client'
 import Employee from "../models/employee-interface"
-import countriesClient from '../utils/countries-http-client'
+import countriesClient from "../utils/countries-http-client"
 
 
 class EmployeeRepository {
@@ -56,7 +55,7 @@ class EmployeeRepository {
                                    ];
     private filteredEmployees: Employee[] = []   
     //The add any region here to distinquish its employees with unique identifier                       
-    private specialRegions:String[] = ['Asia','Europe'];
+    private specialRegions:String[] = ["Asia","Europe"];
     constructor() {
         //fetch and filter employee data
        this.filterEmployees()
@@ -67,28 +66,35 @@ class EmployeeRepository {
         return this.filteredEmployees;
     }
 
-    private filterEmployees(){
-        this.employees.forEach(employee=>{
-            this.getCountry(employee)
+    private async filterEmployees(){
+        let country:any;
+        this.employees.forEach(async (employee)=>{
+            country = await this.getCountryDetails(employee.country)
+            //console.log(country)
+            if(country){
+                employee.countryDetails = {
+                    name: country.data.name,
+                    currencies: country.data.currencies,
+                    languages: country.data.languages,
+                    timezones: country.data.timezones
+            }  
+           //Check for countries within the special countries array
+           this.addUniqueIdentifier(employee,country)
+           
+            //Push to final array
+            this.filteredEmployees.push(employee)   
+            }
         })
     }
 
-    public getCountry(employee: Employee){
-        countriesClient.http.get(`/alpha/${employee.country}`).then((country: any)=>{
-           //Add the additional the country details fiels
-            employee.countryDetails = {
-                     name: country.data.name,
-                     currencies: country.data.currencies,
-                     languages: country.data.languages,
-                     timezones: country.data.timezones
-            }  
-            //Check for countries within the special countries array
-            if(this.specialRegions.includes(country.data.region)){
-                employee.additionalIndentifier = employee.firstName+employee.lastName+employee.dateOfBirth
-            }
-            //Push to final array
-            this.filteredEmployees.push(employee)             
-         })
+    public async getCountryDetails(countryCode: String){
+        return await countriesClient.http.get(`/alpha/${countryCode}`)
+    }
+
+    addUniqueIdentifier(employee: Employee, country: any){
+        if(this.specialRegions.includes(country.data.region)){
+            employee.additionalIndentifier = employee.firstName+employee.lastName+employee.dateOfBirth
+         }
     }
   }
 

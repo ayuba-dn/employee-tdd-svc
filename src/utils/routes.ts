@@ -1,4 +1,4 @@
-import express, {Application} from 'express';
+import express, {Application} from "express";
 export abstract class RoutesHelper {
     app: Application;
   

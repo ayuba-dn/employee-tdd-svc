@@ -1,6 +1,6 @@
-import jwt from 'express-jwt'
-import jwksRsa from 'jwks-rsa'
-import dotenv from 'dotenv'
+import jwt from "express-jwt"
+import jwksRsa from "jwks-rsa"
+import dotenv from "dotenv"
 dotenv.config();
 
 class Auth0Client{
@@ -12,13 +12,13 @@ class Auth0Client{
           jwksRequestsPerMinute: 5,
           jwksUri: `https://${process.env.AUTH0_DOMAIN!}/.well-known/jwks.json`   
         }),
-        algorithms: ['RS256'],
+        algorithms: ["RS256"],
         audience: process.env.AUTH0_AUDIENCE!,
         issuer: `https://${process.env.AUTH0_DOMAIN!}/`
     })
 
     jwtAuthzOptions = {
-        customScopeKey: 'permissions'
+        customScopeKey: "permissions"
     }
 }
 

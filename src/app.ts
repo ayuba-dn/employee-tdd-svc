@@ -24,7 +24,7 @@ class EmployeeService {
     //add all routes to the App here
     private initializeRoutes(){
        new EmployeeRoutes(this.app);
-       this.app.route('/')
+       this.app.route("/")
         .get(async (req: express.Request, res: express.Response) => {
               return res.status(200).send(`Employee service running on port ${process.env.PORT!}`);
         })

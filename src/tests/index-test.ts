@@ -5,7 +5,7 @@ import {Application} from "express"
 
 const app: Application = EmployeeServer.getAppInstance()
 
-describe("GET / - to test if service is live", () => {
+describe("GET / --> to test if service is live", () => {
     it("Return api running message", async () => {
       const response = await supertest(app).get("/");
       expect(response.text).toEqual(`Employee service running on port ${process.env.PORT!}`);
