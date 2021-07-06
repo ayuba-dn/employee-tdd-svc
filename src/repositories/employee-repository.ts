@@ -53,19 +53,20 @@ class EmployeeRepository {
                                         "country":"US"
                                     }
                                    ];
-    private filteredEmployees: Employee[] = []   
     //The add any region here to distinquish its employees with unique identifier                       
     private specialRegions:String[] = ["Asia","Europe"];
     constructor() {
         //fetch and filter employee data
-        this.filterEmployees(this.employees).then(flt=>{
-            this.filteredEmployees = flt
+        this.filterEmployees(this.employees).then(()=>{
+            //console.log("Employees Countries Fetched and Addedd Successfully")
+        }).catch(error=>{
+            //console.log("Somthind went wrong"+error)
         })
     }
 
     
     async getAll(): Promise<Employee []> {
-        return this.filteredEmployees;
+        return this.employees;
     }
 
     async filterEmployees(employees: Employee[]):Promise<Employee[]>{
@@ -81,7 +82,7 @@ class EmployeeRepository {
        return employees
    }
 
-    async getCountryDetails(countryCode: String): Promise<Employee []>{
+    async getCountryDetails(countryCode: String): Promise<any []>{
         return countriesClient.http.get(`/alpha/${countryCode}`)
     }
 

@@ -339,20 +339,14 @@ describe("Employee Repository",()=>{
     describe("filterEmployees", ()=>{
       it("should add unique identifeir fields to employees from special countries",async()=>{
         const getCountryDetails = jest.spyOn(EmployeeRepository,"getCountryDetails")
-        const addUniqueIdentifier = jest.spyOn(EmployeeRepository,"addUniqueIdentifier")
-        const addCountryInfo = jest.spyOn(EmployeeRepository,"addCountryInfo")
         let filtered: Employee[] = await EmployeeRepository.filterEmployees(allEmployees);
         expect(getCountryDetails).toHaveBeenCalledTimes(allEmployees.length)
         expect(getCountryDetails).toHaveBeenCalledWith(
           expect.any(String)
         )
         expect(filtered).toEqual(
-         filteredEmployees
+           filteredEmployees
         )
-        // expect(addCountryInfo).toHaveBeenCalledTimes(allEmployees.length)
-        // expect(addCountryInfo).toHaveBeenCalledWith(
-        //   expect.any,expect.any
-        // )
         
       })
     })
