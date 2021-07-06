@@ -58,7 +58,7 @@ class EmployeeRepository {
     private specialRegions:String[] = ["Asia","Europe"];
     constructor() {
         //fetch and filter employee data
-       this.filterEmployees(this.employees)
+       this.filteredEmployees = this.filterEmployees(this.employees)
     }
 
     
@@ -66,35 +66,43 @@ class EmployeeRepository {
         return this.filteredEmployees;
     }
 
-    async filterEmployees(employees: Employee[]){
+    filterEmployees(employees: Employee[]):Employee[]{
+        let filteredEmployees: Employee[] = []
         employees.forEach(employee=>{
             this.getCountryDetails(employee.country).then(country=>{
-            //console.log(country)
-            employee.countryDetails = {
-                    name: country.data.name,
-                    currencies: country.data.currencies,
-                    languages: country.data.languages,
-                    timezones: country.data.timezones
-            }
+            
+            //Add the employee country info field
+            this.addCountryInfo(employee,country)
+
            //Check for countries within the special countries array
             this.addUniqueIdentifier(employee,country)
            
             //Push to final array
-            this.filteredEmployees.push(employee)   
+            filteredEmployees.push(employee)   
           }).catch(error=>{
               throw new Error('Something bad happened'+error)
           })
        })
+       return filteredEmployees
    }
 
-    async getCountryDetails(countryCode: String){
+    async getCountryDetails(countryCode: String): Promise<Employee []>{
         return countriesClient.http.get(`/alpha/${countryCode}`)
     }
 
-    async addUniqueIdentifier(employee: Employee, country: any){
+    addUniqueIdentifier(employee: Employee, country: any){
         if(this.specialRegions.includes(country.data.region)){
             employee.additionalIndentifier = employee.firstName+employee.lastName+employee.dateOfBirth
          }
+    }
+
+    addCountryInfo(employee: Employee, country: any){
+        employee.countryDetails = {
+            name: country.data.name,
+            currencies: country.data.currencies,
+            languages: country.data.languages,
+            timezones: country.data.timezones
+        }
     }
   }
 

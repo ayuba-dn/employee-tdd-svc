@@ -184,6 +184,33 @@ describe("Employee Repository",()=>{
           }
     
     }
+    const countryDetails = {
+      name: "India",
+      currencies: [
+        {
+          code: "INR",
+          name: "Indian rupee",
+          symbol: "₹"
+        }
+      ],
+      languages: [
+        {
+          iso639_1: "hi",
+          iso639_2: "hin",
+          name: "Hindi",
+          nativeName: "हिन्दी"
+        },
+        {
+          iso639_1: "en",
+          iso639_2: "eng",
+          name: "English",
+          nativeName: "English"
+        }
+      ],
+      timezones: [
+        "UTC+05:30"
+      ]
+    }
     let usaEmployee: Employee;
     let indiaAsiaEmployee: Employee;
     let allEmployees: Employee[];
@@ -195,7 +222,7 @@ describe("Employee Repository",()=>{
             lastName: "Mocker",
             dateOfBirth: "10/01/1982",
             jobTitle: "Software developer",
-            company: "Mock industries",
+            company: "Mock industries", 
             country: "US",
        }
        indiaAsiaEmployee =  {
@@ -313,9 +340,20 @@ describe("Employee Repository",()=>{
       it("should add unique identifeir fields to employees from special countries",async()=>{
         const getCountryDetails = jest.spyOn(EmployeeRepository,"getCountryDetails")
         const addUniqueIdentifier = jest.spyOn(EmployeeRepository,"addUniqueIdentifier")
-        await EmployeeRepository.filterEmployees(allEmployees);
+        const addCountryInfo = jest.spyOn(EmployeeRepository,"addCountryInfo")
+        let filteredEmployees: Employee[] = EmployeeRepository.filterEmployees(allEmployees);
         expect(getCountryDetails).toHaveBeenCalledTimes(allEmployees.length)
+        expect(getCountryDetails).toHaveBeenCalledWith(
+          expect.any(String)
+        )
         
+      })
+    })
+
+    describe("addCountryInfo",()=>{
+      it("Should add a country details field given an employee and a country list",async()=>{
+         await EmployeeRepository.addCountryInfo(indiaAsiaEmployee,indiaData)
+         expect(indiaAsiaEmployee.countryDetails).toEqual(countryDetails)
       })
     })
 
