@@ -58,7 +58,9 @@ class EmployeeRepository {
     private specialRegions:String[] = ["Asia","Europe"];
     constructor() {
         //fetch and filter employee data
-       this.filteredEmployees = this.filterEmployees(this.employees)
+        this.filterEmployees(this.employees).then(flt=>{
+            this.filteredEmployees = flt
+        })
     }
 
     
@@ -66,24 +68,17 @@ class EmployeeRepository {
         return this.filteredEmployees;
     }
 
-    filterEmployees(employees: Employee[]):Employee[]{
-        let filteredEmployees: Employee[] = []
-        employees.forEach(employee=>{
-            this.getCountryDetails(employee.country).then(country=>{
+    async filterEmployees(employees: Employee[]):Promise<Employee[]>{
+        await Promise.all(employees.map(async employee=>{
+            let country = await this.getCountryDetails(employee.country)
             
             //Add the employee country info field
-            this.addCountryInfo(employee,country)
+            await this.addCountryInfo(employee,country)
 
            //Check for countries within the special countries array
-            this.addUniqueIdentifier(employee,country)
-           
-            //Push to final array
-            filteredEmployees.push(employee)   
-          }).catch(error=>{
-              throw new Error('Something bad happened'+error)
-          })
-       })
-       return filteredEmployees
+            await this.addUniqueIdentifier(employee,country)
+        }))
+       return employees
    }
 
     async getCountryDetails(countryCode: String): Promise<Employee []>{

@@ -341,11 +341,18 @@ describe("Employee Repository",()=>{
         const getCountryDetails = jest.spyOn(EmployeeRepository,"getCountryDetails")
         const addUniqueIdentifier = jest.spyOn(EmployeeRepository,"addUniqueIdentifier")
         const addCountryInfo = jest.spyOn(EmployeeRepository,"addCountryInfo")
-        let filteredEmployees: Employee[] = EmployeeRepository.filterEmployees(allEmployees);
+        let filtered: Employee[] = await EmployeeRepository.filterEmployees(allEmployees);
         expect(getCountryDetails).toHaveBeenCalledTimes(allEmployees.length)
         expect(getCountryDetails).toHaveBeenCalledWith(
           expect.any(String)
         )
+        expect(filtered).toEqual(
+         filteredEmployees
+        )
+        // expect(addCountryInfo).toHaveBeenCalledTimes(allEmployees.length)
+        // expect(addCountryInfo).toHaveBeenCalledWith(
+        //   expect.any,expect.any
+        // )
         
       })
     })
