@@ -57,11 +57,7 @@ class EmployeeRepository {
     private specialRegions:String[] = ["Asia","Europe"];
     constructor() {
         //fetch and filter employee data
-        this.filterEmployees(this.employees).then(()=>{
-            //console.log("Employees Countries Fetched and Addedd Successfully")
-        }).catch(error=>{
-            //console.log("Somthind went wrong"+error)
-        })
+        this.filterEmployees(this.employees)
     }
 
     
