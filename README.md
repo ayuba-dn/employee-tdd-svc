@@ -58,8 +58,8 @@
 This employee service is an API server that basically returns a list of employees alongside their countries. To ensure optimal performance, code readability and extensibility of this project; I have followed certain software developement patterns/principle which i highlight below.
 
 * Test-First (TDD): I wrote the tests base on the user story, run the tests, and write the required code when the test fails
-* Single Responsibility Principle (SRP): As much as possible, the classes created are designated for a single purpose ()
-* DRY (Do not repeat yourself): I created configuration files, helper classes and methods to avoid code repetition
+* Single Responsibility Principle (SRP): As much as possible, the classes and functions created are designated for a single purpose ()
+* DRY (Do not repeat yourself): I created configuration files, helper classes and functions to avoid code repetition
 * Time and space Efficiency (The big O and the event loop): To ensure system efficiency, the algorithm design for the system have been influenced My understanding of the big(0) as well as the event loop
 
 
